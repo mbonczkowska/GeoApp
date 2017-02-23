@@ -8,55 +8,78 @@
     <style>
     
       body{
-        background-color: lightgrey;
+        background-color: #f4f7f8;;
       }
       main{
+        line-height: 1.5;
         width: 40%;
-        margin: auto;
+        margin: 0 auto; 
+        box-shadow: 10px 10px 5px #888888;
       }
-      main form{
-        padding: 10px;
-        background-color: grey;
+      #geoform{
+        padding: 50px;
+        background-color: #d2d9dd;
+        color: #555555;
+        border: 1px solid #ccc;
+
       }
-      main h2 {
+      h1 {
         text-align: center;
-        background-color: lightblue;
-        padding: 10px;
+        background-color: #337ab7;
+        color: #FFFFFF;
+        padding: 30px;
         margin: 0;
+
       }
       #googleMap {
         width:100%;
         height:400px;
         display: none; 
-    }
+     }
+     button[name=submitButton]{
+      
+   
+       color:#FFFFFF;
+  
+
+     }
+
     </style>   
   </head>
   <body>
     
     <main>
-    <h2>Formularz</h2>
-    <form id="geo">
-      <div class="form-group">
-        <label for="name" class="control-label">Imię:</label>
-        <input type="text" class="form-control" id="name">
+    
+    <h1>Formularz</h1>
+
+    <form id="geoform">
+
+      <div class="form-group row">
+        <label for="name" class="control-label">Imię</label>
+        <input type="text" class="form-control" id="name" placeholder="Imię" pattern="[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłóńśźż]*">
       </div>
-      <div class="form-group">
-        <label for="email" class="control-label">E-mail:</label>
-        <input type="email" class="form-control" id="email"></input>
+      <div class="form-group row">
+        <label for="email" class="control-label">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="E-mail"></input>
       </div>
-      <div class="form-group">
-        <label for="description" class="control-label">Opis:</label>
-        <input type="text" class="form-control" id="description">
+      <div class="form-group row">
+        <label for="description" class="control-label">Opis</label>
+        <input type="text" class="form-control" id="description" placeholder="Opis">
       </div>
-      <div class="form-group">
-        <label for="latitude" class="control-label">Szerokość geograficzna:</label>
-        <input type="text"  class="form-control" id="latitude"></input>
+      <div class="form-group row">
+        <label for="latitude" class="control-label">Szerokość geograficzna</label>
+        <input type="text"  class="form-control" id="latitude" placeholder="0" pattern="[-]?([1-9][0-9]|[0-9])\.?\d*" ></input>
       </div>
-      <div class="form-group">
-        <label for="longitude" class="control-label">Długość geograficzna:</label>
-        <input type="text"  class="form-control" id="longitude"></input>
+      <div class="form-group row">
+        <label for="longitude" class="control-label">Długość geograficzna</label>
+        <input type="text"  class="form-control" id="longitude" placeholder="0" pattern="[-]?(1[0-8][0-9]|[1-9][0-9]|[0-9])\.?\d*"></input>
+       
       </div>
-      <input type="submit" value="dodaj" name="submitButton">
+     
+      <button type="submit" name="submitButton" class="btn-lg btn-primary">Dodaj</button> 
+
+     
+
     </form>
       
     <div id="googleMap"></div>
@@ -66,7 +89,7 @@
       document.onreadystatechange = function () {
         if (document.readyState == "complete") {
     
-        var form = document.getElementById("geo");
+        var form = document.getElementById("geoform");
     
         form.addEventListener("submit", function(evt){
     
