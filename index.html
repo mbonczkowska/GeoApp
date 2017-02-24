@@ -4,55 +4,113 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    
+   
     <style>
     
       body{
-        background-color: #f4f7f8;;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7f8;
+        font-size: 16px;
       }
-      main{
+
+      .content{
         line-height: 1.5;
-        width: 40%;
+        width: 100%;
+        padding: 30px;
         margin: 0 auto; 
-        box-shadow: 10px 10px 5px #888888;
+        //box-shadow: 10px 10px 5px #888888;
       }
-      #geoform{
+       
+     input[type=text], input[type=email] {   
+       height: 60px;
+       font-size: 1.1em;
+     }
+
+      #geoForm{
         padding: 50px;
         background-color: #d2d9dd;
         color: #555555;
         border: 1px solid #ccc;
+        font-size: 1.5em;  
 
       }
-      h1 {
+
+     .form-group{
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+      }
+    
+      .form-title {
         text-align: center;
         background-color: #337ab7;
         color: #FFFFFF;
         padding: 30px;
         margin: 0;
+              }
 
-      }
       #googleMap {
-        width:100%;
-        height:400px;
+        width: 100%;
+        height: 400px;
         display: none; 
      }
-     button[name=submitButton]{
-      
-   
-       color:#FFFFFF;
-  
 
+     .submitButton{
+       color: #FFFFFF;
+      font-size: 1.1em;
+      width: 100%;
+      margin-top: 40px;
      }
 
+    @media(min-width: 40em){
+
+         .content{
+          width: 80%;     
+          margin-top: 30px;
+          padding: 0;
+          box-shadow: 10px 10px 5px #888888;
+        }
+
+    }
+
+     @media(min-width: 70em){
+
+         .content{         
+          width: 70%;          
+          margin-top: 30px;
+          padding: 0;
+          box-shadow: 10px 10px 5px #888888;
+        }
+
+        .submitButton{
+         width: auto;    
+        }
+    }
+      @media(min-width: 80em){
+
+         .content{         
+          width: 50%;          
+          margin-top: 30px;
+          padding: 0;
+          box-shadow: 10px 10px 5px #888888;
+        }
+
+        .submitButton{
+         width: auto;    
+        }
+    }
     </style>   
+
+     <meta name="viewport" content="width-device-width">
   </head>
   <body>
     
-    <main>
+    <main class="content">
     
-    <h1>Formularz</h1>
+    <h1 class="form-title">Formularz</h1>
 
-    <form id="geoform">
+    <form id="geoForm">
 
       <div class="form-group row">
         <label for="name" class="control-label">Imię</label>
@@ -76,7 +134,7 @@
        
       </div>
      
-      <button type="submit" name="submitButton" class="btn-lg btn-primary">Dodaj</button> 
+      <button type="submit" name="submitButton" class="submitButton btn-lg btn-primary">Dodaj</button> 
 
      
 
@@ -89,7 +147,7 @@
       document.onreadystatechange = function () {
         if (document.readyState == "complete") {
     
-        var form = document.getElementById("geoform");
+        var form = document.getElementById("geoForm");
     
         form.addEventListener("submit", function(evt){
     
@@ -121,9 +179,7 @@
             position: new google.maps.LatLng(lat,long),
             map: map,
             title: name + ' ' + description
-        });
-    
-    
+        });   
         };
     </script>
     
