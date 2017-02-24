@@ -1,111 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-   
-    <style>
-    
-      body{
-        margin: 0;
-        padding: 0;
-        background-color: #f4f7f8;
-        font-size: 16px;
-      }
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="width-device-width">
+</head>
+<body>
 
-      .content{
-        line-height: 1.5;
-        width: 100%;
-        padding: 30px;
-        margin: 0 auto; 
-        //box-shadow: 10px 10px 5px #888888;
-      }
-       
-     input[type=text], input[type=email] {   
-       height: 60px;
-       font-size: 1.1em;
-     }
-
-      #geoForm{
-        padding: 50px;
-        background-color: #d2d9dd;
-        color: #555555;
-        border: 1px solid #ccc;
-        font-size: 1.5em;  
-
-      }
-
-     .form-group{
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 10px;
-      }
-    
-      .form-title {
-        text-align: center;
-        background-color: #337ab7;
-        color: #FFFFFF;
-        padding: 30px;
-        margin: 0;
-              }
-
-      #googleMap {
-        width: 100%;
-        height: 400px;
-        display: none; 
-     }
-
-     .submitButton{
-       color: #FFFFFF;
-      font-size: 1.1em;
-      width: 100%;
-      margin-top: 40px;
-     }
-
-    @media(min-width: 40em){
-
-         .content{
-          width: 80%;     
-          margin-top: 30px;
-          padding: 0;
-          box-shadow: 10px 10px 5px #888888;
-        }
-
-    }
-
-     @media(min-width: 70em){
-
-         .content{         
-          width: 70%;          
-          margin-top: 30px;
-          padding: 0;
-          box-shadow: 10px 10px 5px #888888;
-        }
-
-        .submitButton{
-         width: auto;    
-        }
-    }
-      @media(min-width: 80em){
-
-         .content{         
-          width: 50%;          
-          margin-top: 30px;
-          padding: 0;
-          box-shadow: 10px 10px 5px #888888;
-        }
-
-        .submitButton{
-         width: auto;    
-        }
-    }
-    </style>   
-
-     <meta name="viewport" content="width-device-width">
-  </head>
-  <body>
-    
     <main class="content">
     
     <h1 class="form-title">Formularz</h1>
@@ -118,7 +21,7 @@
       </div>
       <div class="form-group row">
         <label for="email" class="control-label">E-mail</label>
-        <input type="email" class="form-control" id="email" placeholder="E-mail"></input>
+        <input type="email" class="form-control" id="email" placeholder="E-mail">
       </div>
       <div class="form-group row">
         <label for="description" class="control-label">Opis</label>
@@ -126,13 +29,14 @@
       </div>
       <div class="form-group row">
         <label for="latitude" class="control-label">Szerokość geograficzna</label>
-        <input type="text"  class="form-control" id="latitude" placeholder="0" pattern="[-]?([1-9][0-9]|[0-9])\.?\d*" ></input>
+        <input type="text"  class="form-control" id="latitude" placeholder="0" pattern="[-]?([1-9][0-9]|[0-9])\.?[0-9]*">
       </div>
       <div class="form-group row">
         <label for="longitude" class="control-label">Długość geograficzna</label>
-        <input type="text"  class="form-control" id="longitude" placeholder="0" pattern="[-]?(1[0-8][0-9]|[1-9][0-9]|[0-9])\.?\d*"></input>
+        <input type="text"  class="form-control" id="longitude" placeholder="0" pattern="[-]?(1[0-8][0-9]|[1-9][0-9]|[0-9])\.?[0-9]*">
        
       </div>
+
      
       <button type="submit" name="submitButton" class="submitButton btn-lg btn-primary">Dodaj</button> 
 
@@ -143,48 +47,9 @@
     <div id="googleMap"></div>
 
     </main>
-    <script>
-      document.onreadystatechange = function () {
-        if (document.readyState == "complete") {
-    
-        var form = document.getElementById("geoForm");
-    
-        form.addEventListener("submit", function(evt){
-    
-          evt.preventDefault();
-    
-          var name = form.elements["name"].value;
-          var email = form.elements["email"].value;
-          var description = form.elements["description"].value;
-          var lat = form.elements["latitude"].value;
-          var long = form.elements["longitude"].value;
-          var map = document.getElementById("googleMap");
-    
-          map.style.display = "block";
-          myMap(lat, long, name, description);
-    
-        });
-    
-    
-    
-        };
-        };
-        function myMap(lat, long,name, description) {
-            var mapProp= {
-            center:new google.maps.LatLng(lat,long),
-            zoom:5,
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(lat,long),
-            map: map,
-            title: name + ' ' + description
-        });   
-        };
-    </script>
-    
-    
+
+    <script src="js/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMXJNjngjTtrN9whaCdGOIyjJMr95S9HI&callback=myMap"></script>
-    
-  </body>
+
+</body>
 </html>

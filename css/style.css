@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f8;
+    font-size: 16px;
+}
+
+.content {
+    line-height: 1.5;
+    width: 100%;
+    margin: 0 auto;
+}
+
+input[type=text], input[type=email] {
+    height: 60px;
+    font-size: 1.1em;
+}
+
+#geoForm {
+    padding: 50px;
+    background-color: #d2d9dd;
+    color: #555555;
+    border: 1px solid #ccc;
+    font-size: 1.5em;
+}
+
+.form-group {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.form-title {
+    text-align: center;
+    background-color: #337ab7;
+    color: #FFFFFF;
+    padding: 30px;
+    margin: 0;
+}
+
+#googleMap {
+    width: 100%;
+    height: 400px;
+    display: none;
+    margin-top: 10px;
+}
+
+.submitButton {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    width: 100%;
+    margin-top: 40px;
+}
+
+@media(min-width: 40em) {
+    .content;
+
+{
+    margin-top: 30px;
+    padding: 0;
+}
+
+input[type=text], input[type=email] {
+    height: 50px;
+    font-size: 1em;
+}
+
+.form-title {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#geoForm {
+    width: 70%;
+    margin: 0 auto;
+}
+
+}
+
+@media(min-width: 70em) {
+    .content;
+
+{
+    margin-top: 30px;
+    padding: 0;
+}
+
+.submitButton {
+    width: auto;
+}
+
+input[type=text], input[type=email] {
+    height: 50px;
+    font-size: 1em;
+}
+
+.form-title {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#geoForm {
+    width: 50%;
+    margin: 0 auto;
+}
+}
